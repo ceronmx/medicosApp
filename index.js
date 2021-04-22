@@ -1,7 +1,11 @@
 const express = require('express');
-const { dbConnection } = require('./database/config')
+require('dotenv').config();
+const { dbConnection } = require('./database/config');
+const cors = require('cors')
 
 const app = express();
+app.use(cors());
+dbConnection();
 
 app.get('/', (req, res) => {
     res.json({
@@ -11,9 +15,6 @@ app.get('/', (req, res) => {
 });
 
 
-app.listen(3000, () =>{
-    console.log('Servidor en puerto 3000')
+app.listen(process.env.PORT, () =>{
+    console.log('Servidor en puerto ', process.env.PORT);
 });
-
-//dbUser
-//id4lvt8EImo2rlTH

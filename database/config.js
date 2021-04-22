@@ -1,9 +1,9 @@
-const mongoose = require("mongoose");
+const mongoose = require('mongoose');
 
 const dbConnection = async () => {
 
     try {
-        mongoose.connect('mongodb+srv://dbUser:id4lvt8EImo2rlTH@cluster0.nz2xc.mongodb.net/medicosDb', {
+        mongoose.connect(process.env.DB_URL, {
             useNewUrlParser: true,
             useUnifiedTopology: true,
             useCreateIndex: true
